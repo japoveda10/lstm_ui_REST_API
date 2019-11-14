@@ -6,7 +6,7 @@ Welcome! This is a REST API built with [Django REST Framework](https://www.djang
 
 1. Download this GitHub repository
 
-`$ git clone https://github.com/japoveda10/lstm_ui_REST_API.git`
+   `$ git clone https://github.com/japoveda10/lstm_ui_REST_API.git`
 
 2. Request the `settings.py`. When you get it, place it inside the `lstm_ui_REST_API` folder (where the `urls.py` and `wsgi.py` files are)
 
