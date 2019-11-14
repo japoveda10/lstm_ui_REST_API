@@ -16,7 +16,7 @@ Welcome! This is a REST API built with [Django REST Framework](https://www.djang
 
    **Important:** the virtual environment setup instructions for Windows and macOS were not written by us (we are linking you       to an external information source).
 
-5. Install **Django** using pip (make sure you have created and have active a virtual environment for this project):
+5. Install **Django** using pip (make sure you have created and activated a virtual environment for this project):
 
    ```
    $ pip install django
