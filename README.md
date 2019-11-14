@@ -8,7 +8,7 @@ Welcome! This is a REST API built with [Django REST Framework](https://www.djang
 
    `$ git clone https://github.com/japoveda10/lstm_ui_REST_API.git`
 
-2. Request the `settings.py`. When you get it, place it inside the `lstm_ui_REST_API` folder (where the `urls.py` and `wsgi.py` files are)
+2. Request the `settings.py` to japoveda10. When you get it, place it inside the `lstm_ui_REST_API` folder (where the `urls.py` and `wsgi.py` files are)
 
 3. Install [Python](https://www.python.org/downloads/)
 
@@ -26,6 +26,16 @@ Welcome! This is a REST API built with [Django REST Framework](https://www.djang
 
    ```
    $ pip install djangorestframework
+   ```
+
+7. Execute the following commands (make sure you are located inside the same folder where the manage.py file is):
+
+   ```
+   $ manage.py makemigrations
+   ```
+   
+   ```
+   $ manage.py migrate
    ```
 
 7. Execute the following command:
