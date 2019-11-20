@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EventLog, RunningCase
+from .models import EventLog, RunningCase, Role, Time
 
 class EventLogSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -10,3 +10,13 @@ class RunningCaseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = RunningCase
         fields = ['id', 'name', 'prefix', 'suffix']
+
+class RoleSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Role
+        fields = ['name']
+
+class TimeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Time
+        fields = ['name']
