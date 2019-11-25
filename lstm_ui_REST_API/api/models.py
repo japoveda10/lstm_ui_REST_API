@@ -1,5 +1,17 @@
+#------------------------------------------------------------------------------
+# LSTM UI REST API
+# models.py
+# This file has classes that represent models
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+# Imports
+#------------------------------------------------------------------------------
 from django.db import models
 
+#------------------------------------------------------------------------------
+# Classes that represent models
+#------------------------------------------------------------------------------
 class EventLog(models.Model):
     name = models.CharField(max_length=50)
     number_of_traces = models.IntegerField(default=0)
@@ -15,6 +27,7 @@ class EventLog(models.Model):
 
 class RunningCase(models.Model):
     prefix_size = models.IntegerField(default=0)
+    event_log = models.ForeignKey(EventLog, default="", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.prefix_size
@@ -22,21 +35,15 @@ class RunningCase(models.Model):
 class Activity(models.Model):
     activity_number = models.IntegerField(default=0)
     activity_name = models.CharField(max_length=100, default="")
+    running_case = models.ForeignKey(RunningCase, default="", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.activity_name
 
-# One To Many Table to do match with running case id and activities
-# running_case_id
-# activity_number
-
-# Event Log, Running Case
-# event_log_id
-# running_case_id
-
 class Role(models.Model):
     role_id = models.IntegerField(default=0)
     role_name = models.CharField(max_length=100, default="")
+    activity = models.ForeignKey(Activity, default="", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.role_name
@@ -45,15 +52,7 @@ class Time(models.Model):
     min = models.IntegerField(default=0)
     max = models.IntegerField(default=0)
     mean = models.IntegerField(default=0)
+    activity = models.OneToOneField(Activity, default="", on_delete = models.CASCADE)
 
     def __str__(self):
         return self.mean
-
-# One to Many Activity Role Table
-# activity_number
-# role_id
-
-# Activity Time Table
-# One to one
-# Weak entity
-# Embedded table
