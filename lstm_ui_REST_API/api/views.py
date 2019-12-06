@@ -20,6 +20,9 @@ class EventLogViewSet(viewsets.ModelViewSet):
     '''
     queryset = EventLog.objects.all()
     serializer_class = EventLogSerializer
+    ''' Detect request '''
+    ''' Call LSTM project function '''
+    ''' Save data to dabase '''
 
 class RunningCaseViewSet(viewsets.ModelViewSet):
     '''
