@@ -10,6 +10,7 @@
 from rest_framework import viewsets
 from .models import EventLog, RunningCase, Activity, Role, Time
 from .serializers import EventLogSerializer, RunningCaseSerializer, ActivitySerializer, RoleSerializer, TimeSerializer
+from backend import hello_world
 
 #------------------------------------------------------------------------------
 # Classes that represent viewsets
@@ -20,6 +21,8 @@ class EventLogViewSet(viewsets.ModelViewSet):
     '''
     queryset = EventLog.objects.all()
     serializer_class = EventLogSerializer
+    hello_world()
+
     ''' Detect request '''
     ''' Call LSTM project function '''
     ''' Save data to dabase '''
