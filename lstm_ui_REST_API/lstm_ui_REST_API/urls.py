@@ -1,5 +1,6 @@
 #------------------------------------------------------------------------------
 # LSTM UI REST API
+# By japoveda10
 # urls.py
 # This file configures the app's urls
 #------------------------------------------------------------------------------
@@ -17,6 +18,8 @@ from api import views
 #------------------------------------------------------------------------------
 router = routers.DefaultRouter()
 router.register('event_logs', views.EventLogViewSet)
+router.register('trained_models', views.TrainedModelViewSet)
+router.register('results', views.ResultViewSet)
 router.register('running_cases', views.RunningCaseViewSet)
 router.register('activities', views.ActivityViewSet)
 router.register('roles', views.RoleViewSet)
