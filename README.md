@@ -6,7 +6,7 @@ Welcome!
 
 ## What is it?
 
-This is a **REST API** built with [Django REST Framework](https://www.django-rest-framework.org) for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
+This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
 
 ## How is it built?
 
