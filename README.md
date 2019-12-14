@@ -2,23 +2,23 @@
 
 Welcome! 
 
-
+![Django REST Framework Browsable API](https://raw.githubusercontent.com/japoveda10/lstm_ui_REST_API/master/lstm_ui_REST_API/IMAGE.PNG)
 
 ## What is it?
 
-This is a REST API built with [Django REST Framework](https://www.django-rest-framework.org) for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
+This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
 
-## How is it built?
+## How was it built?
 
 This REST API was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
-## How to install it?
+## How can I run it?
 
 1. Download this GitHub repository
 
    `$ git clone https://github.com/japoveda10/lstm_ui_REST_API.git`
 
-2. Request the `settings.py` to japoveda10. When you get it, place it inside the `lstm_ui_REST_API` folder (where the `urls.py` and `wsgi.py` files are)
+2. Request the `settings.py` file to [japoveda10](https://github.com/japoveda10). When you get it, place it inside the `lstm_ui_REST_API` folder (where the `urls.py` and `wsgi.py` files are)
 
 3. Install [Python](https://www.python.org/downloads/)
 
@@ -66,4 +66,4 @@ If you have questions or suggestions about this project, please contact [japoved
 
 ## Author
 
-By [japoveda10](https://github.com/japoveda10)
+[japoveda10](https://github.com/japoveda10)
