@@ -2,7 +2,7 @@
 
 Welcome! 
 
-
+![Django REST Framework Browsable API](https://raw.githubusercontent.com/japoveda10/lstm_ui_REST_API/master/lstm_ui_REST_API/IMAGE.PNG)
 
 ## What is it?
 
