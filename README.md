@@ -8,7 +8,7 @@ Welcome!
 
 This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
 
-## How is it built?
+## How was it built?
 
 This REST API was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
