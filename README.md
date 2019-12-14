@@ -12,7 +12,7 @@ This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/l
 
 This REST API was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
-## How to install it?
+## How can I run it?
 
 1. Download this GitHub repository
 
