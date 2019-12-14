@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# LSTM UI REST API
+# LSTM UI REST API Project
 # By japoveda10
 # models.py
 # This file has classes that represent models

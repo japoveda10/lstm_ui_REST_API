@@ -1,8 +1,8 @@
 #------------------------------------------------------------------------------
-# LSTM UI REST API
+# LSTM UI REST API Project
 # By japoveda10
 # urls.py
-# This file configures the app's urls
+# This file configures the project's urls
 #------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ router.register('times', views.TimeViewSet)
 
 
 #------------------------------------------------------------------------------
-# Url patterns
+# URL Patterns
 #------------------------------------------------------------------------------
 urlpatterns = [
     path('admin/', admin.site.urls),
