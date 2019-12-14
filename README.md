@@ -1,8 +1,16 @@
 # LSTM UI REST API
 
-Welcome! This is a REST API built with [Django REST Framework](https://www.django-rest-framework.org).
+Welcome! 
 
-![Django REST Framework Browsable API](https://raw.githubusercontent.com/japoveda10/lstm_ui_REST_API/master/lstm_ui_REST_API/IMAGE.png)
+
+
+## What is it?
+
+This is a REST API built with [Django REST Framework](https://www.django-rest-framework.org) for the [LSTM UI Project](https://github.com/japoveda10/lstm_ui_vuejs).
+
+## How is it built?
+
+This REST API was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
 ## How to install it?
 
