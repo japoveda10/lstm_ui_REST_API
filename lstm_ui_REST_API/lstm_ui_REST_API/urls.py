@@ -10,26 +10,21 @@
 #------------------------------------------------------------------------------
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework import routers
 from api import views
 
 #------------------------------------------------------------------------------
 # Router
 #------------------------------------------------------------------------------
-router = routers.DefaultRouter()
-router.register('event_logs', views.EventLogViewSet, base_name="eventlog")
-router.register('trained_models', views.TrainedModelViewSet)
-router.register('results', views.ResultViewSet)
-router.register('running_cases', views.RunningCaseViewSet)
-router.register('activities', views.ActivityViewSet)
-router.register('roles', views.RoleViewSet)
-router.register('times', views.TimeViewSet)
-
 
 #------------------------------------------------------------------------------
 # URL Patterns
 #------------------------------------------------------------------------------
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('event_logs/', views.EventLogList.as_view()),
+    path('event_logs/<int:pk>/', views.EventLogDetail.as_view()),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

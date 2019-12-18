@@ -16,10 +16,37 @@ from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role,
 #------------------------------------------------------------------------------
 
 # Event Log Serializer
-class EventLogSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = EventLog
-        fields = ['id', 'url', 'name', 'number_of_traces', 'number_of_events', 'number_of_activities', 'avg_activities_per_trace', 'max_activities_per_trace', 'mean_duration', 'max_duration']
+class EventLogSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    number_of_traces = serializers.IntegerField(required=True)
+    number_of_events = serializers.IntegerField(required=True)
+    number_of_activities = serializers.IntegerField(required=True)
+    avg_activities_per_trace = serializers.FloatField(required=True)
+    max_activities_per_trace = serializers.FloatField(required=True)
+    mean_duration = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    max_duration = serializers.CharField(required=True, allow_blank=False, max_length=100)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `EventLog` instance, given the validated data.
+        """
+        return EventLog.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `EventLog` instance, given the validated data.
+        """
+        instance.name = validated_data.get('name', instance.name)
+        instance.number_of_traces = validated_data.get('number_of_traces', instance.number_of_traces)
+        instance.number_of_events = validated_data.get('number_of_events', instance.number_of_events)
+        instance.number_of_activities = validated_data.get('number_of_activities', instance.number_of_activities)
+        instance.avg_activities_per_trace = validated_data.get('avg_activities_per_trace', instance.avg_activities_per_trace)
+        instance.max_activities_per_trace = validated_data.get('max_activities_per_trace', instance.max_activities_per_trace)
+        instance.mean_duration = validated_data.get('mean_duration', instance.mean_duration)
+        instance.max_duration = validated_data.get('max_duration', instance.max_duration)
+        instance.save()
+        return instance
 
 # Trained Model Serializer
 class TrainedModelSerializer(serializers.HyperlinkedModelSerializer):
