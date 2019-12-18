@@ -17,7 +17,7 @@ from api import views
 # Router
 #------------------------------------------------------------------------------
 router = routers.DefaultRouter()
-router.register('event_logs', views.EventLogViewSet)
+router.register('event_logs', views.EventLogViewSet, base_name="eventlog")
 router.register('trained_models', views.TrainedModelViewSet)
 router.register('results', views.ResultViewSet)
 router.register('running_cases', views.RunningCaseViewSet)

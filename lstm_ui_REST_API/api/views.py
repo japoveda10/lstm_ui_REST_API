@@ -9,6 +9,7 @@
 # Imports
 #------------------------------------------------------------------------------
 from rest_framework import viewsets
+from rest_framework.response import Response
 from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, Time
 from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, RoleSerializer, TimeSerializer
 
@@ -22,10 +23,13 @@ from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSeria
 # Event Log ViewSet
 class EventLogViewSet(viewsets.ModelViewSet):
     '''
-    API endpoint that allows event logs to be viewed or edited
+    Simple ViewSet for listing or retrieving users
     '''
-    queryset = EventLog.objects.all()
     serializer_class = EventLogSerializer
+    
+    def get_queryset(self):
+        print("GET eventlogs")
+        return EventLog.objects.all()
 
 # Trained Model ViewSet
 class TrainedModelViewSet(viewsets.ModelViewSet):
