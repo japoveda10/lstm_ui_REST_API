@@ -49,10 +49,25 @@ class EventLogSerializer(serializers.Serializer):
         return instance
 
 # Trained Model Serializer
-class TrainedModelSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = TrainedModel
-        fields = ['id', 'url', 'running_case', 'accuracy']
+class TrainedModelSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    # running_case = RunningCaseSerializer(many=True)
+    accuracy = serializers.FloatField(required=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `TrainedModel` instance, given the validated data.
+        """
+        return TrainedModel.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `TrainedModel` instance, given the validated data.
+        """
+        instance.running_case = validated_data.get('running_case', instance.running_case)
+        instance.accuracy = validated_data.get('accuracy', instance.accuracy)
+        instance.save()
+        return instance
 
 # Result Serializer
 class ResultSerializer(serializers.HyperlinkedModelSerializer):
