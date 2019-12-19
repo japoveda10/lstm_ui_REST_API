@@ -48,10 +48,31 @@ class EventLogSerializer(serializers.Serializer):
         instance.save()
         return instance
 
+# Running Case Serializer
+class RunningCaseSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    prefix_size = serializers.IntegerField(required=True)
+    event_log = EventLogSerializer(many=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `RunningCase` instance, given the validated data.
+        """
+        return RunningCase.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `RunningCase` instance, given the validated data.
+        """
+        instance.prefix_size = validated_data.get('prefix_size', instance.prefix_size)
+        instance.event_log = validated_data.get('event_log', instance.event_log)
+        instance.save()
+        return instance
+
 # Trained Model Serializer
 class TrainedModelSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    # running_case = RunningCaseSerializer(many=True)
+    running_case = RunningCaseSerializer(many=True)
     accuracy = serializers.FloatField(required=True)
 
     def create(self, validated_data):
@@ -70,31 +91,99 @@ class TrainedModelSerializer(serializers.Serializer):
         return instance
 
 # Result Serializer
-class ResultSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Result
-        fields = ['id', 'url', 'trained_model', 'mae', 'similarity', 'distance', 'prefix_size']
+class ResultSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    trained_model = TrainedModelSerializer(many=True)
+    mae = serializers.FloatField(required=True)
+    similarity = serializers.FloatField(required=True)
+    distance = serializers.FloatField(required=True)
+    prefix_size = serializers.IntegerField(required=True)
 
-# Running Case Serializer
-class RunningCaseSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = RunningCase
-        fields = ['id', 'url', 'prefix_size', 'event_log']
+    def create(self, validated_data):
+        """
+        Create and return a new `Result` instance, given the validated data.
+        """
+        return Result.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `Result` instance, given the validated data.
+        """
+        instance.trained_model = validated_data.get('trained_model', instance.trained_model)
+        instance.mae = validated_data.get('mae', instance.mae)
+        instance.similarity = validated_data.get('similarity', instance.similarity)
+        instance.distance = validated_data.get('distance', instance.distance)
+        instance.prefix_size = validated_data.get('prefix_size', instance.prefix_size)
+        instance.save()
+        return instance
 
 # Activity Serializer
-class ActivitySerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Activity
-        fields = ['id', 'url', 'activity_number', 'activity_name', 'running_case']
+class ActivitySerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    activity_number = serializers.IntegerField(required=True)
+    activity_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    running_case = RunningCaseSerializer(many=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `Activity` instance, given the validated data.
+        """
+        return Activity.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `Activity` instance, given the validated data.
+        """
+        instance.activity_number = validated_data.get('activity_number', instance.activity_number)
+        instance.activity_name = validated_data.get('activity_name', instance.activity_name)
+        instance.running_case = validated_data.get('running_case', instance.running_case)
+        instance.save()
+        return instance
 
 # Role Serializer
-class RoleSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Role
-        fields = ['id', 'url', 'role_id', 'role_name', 'activity']
+class RoleSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    role_id = serializers.IntegerField(required=True)
+    role_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    activity = ActivitySerializer(many=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `Role` instance, given the validated data.
+        """
+        return Role.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `Role` instance, given the validated data.
+        """
+        instance.role_id = validated_data.get('role_id', instance.role_id)
+        instance.role_name = validated_data.get('role_name', instance.role_name)
+        instance.activity = validated_data.get('activity', instance.activity)
+        instance.save()
+        return instance
 
 # Time Serializer
-class TimeSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Time
-        fields = ['id', 'url', 'min', 'max', 'mean', 'activity']
+class TimeSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    min = serializers.IntegerField(required=True)
+    max = serializers.IntegerField(required=True)
+    mean = serializers.IntegerField(required=True)
+    activity = ActivitySerializer(many=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `Time` instance, given the validated data.
+        """
+        return Time.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `Time` instance, given the validated data.
+        """
+        instance.min = validated_data.get('min', instance.min)
+        instance.max = validated_data.get('max', instance.max)
+        instance.mean = validated_data.get('mean', instance.mean)
+        instance.activity = validated_data.get('activity', instance.activity)
+        instance.save()
+        return instance
