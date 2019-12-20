@@ -23,7 +23,8 @@ from api import views
 #------------------------------------------------------------------------------
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('event_logs/', views.EventLogList.as_view()),
+    path('', views.api_root),
+    path('event_logs/', views.EventLogList.as_view(), name='event_log-list'),
     path('event_logs/<int:pk>/', views.EventLogDetail.as_view()),
 ]
 

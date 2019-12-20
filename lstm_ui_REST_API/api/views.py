@@ -13,14 +13,26 @@ from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSeria
 
 from django.http import Http404
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework import status
 
 # lstm module
 # from lstm import main
 
 #------------------------------------------------------------------------------
-# Classes that represent ViewSets
+# API Root
+#------------------------------------------------------------------------------
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'event_logs': reverse('event_log-list', request=request, format=format),
+    })
+
+#------------------------------------------------------------------------------
+# Classes that represent API Views
 #------------------------------------------------------------------------------
 
 # Event Log List
