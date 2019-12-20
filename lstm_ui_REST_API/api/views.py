@@ -10,7 +10,6 @@
 #------------------------------------------------------------------------------
 from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, Time
 from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, RoleSerializer, TimeSerializer
-
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -188,22 +187,58 @@ class ResultDetail(APIView):
         result.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-'''# Result ViewSet
-class ResultViewSet(viewsets.ModelViewSet):
-    queryset = Result.objects.all()
-    serializer_class = ResultSerializer
-
-# Running Case ViewSet
-class RunningCaseViewSet(viewsets.ModelViewSet):
-    queryset = RunningCase.objects.all()
-    serializer_class = RunningCaseSerializer
+# Running Case List
+class RunningCaseList(APIView):
+    """
+    List all running cases, or create a new running case
+    """
+    def get(self, request, format=None):
+        print("GET running cases")
+        running_cases = RunningCase.objects.all()
+        serializer = RunningCaseSerializer(running_cases, many=True)
+        return Response(serializer.data)
     
-    # (1) Detect request (/event_logs/1/running_cases)
-    # (2) Call lstm module function
-    # main()
-    # Data obtained as Python dictionary. Transform it
-    # (3) Save data to database
+    def post(self, request, format=None):
+        print("POST running cases")
+        serializer = RunningCaseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# Running Case Detail
+class RunningCaseDetail(APIView):
+    """
+    Retrieve, update or delete a running case instance
+    """
+    def get_object(self, pk):
+        try:
+            return RunningCase.objects.get(pk=pk)
+        except RunningCase.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        print("GET specific running case")
+        running_case = self.get_object(pk)
+        serializer = RunningCaseSerializer(running_case)
+        return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        print("UPDATE specific running case")
+        running_case = self.get_object(pk)
+        serializer = RunningCaseSerializer(running_case, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        print("DELTE specific running case")
+        running_case = self.get_object(pk)
+        running_case.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+'''
 # Activity ViewSet
 class ActivityViewSet(viewsets.ModelViewSet):
     queryset = Activity.objects.all()
