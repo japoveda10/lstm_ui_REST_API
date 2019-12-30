@@ -37,11 +37,27 @@ This REST API was built using [Django](https://www.djangoproject.com/) and [Djan
    ```
    $ pip install djangorestframework
    ```
+   
+   ```
+   $ pip install django_extensions
+   ```
+   
+   ```
+   $ pip install django-cors-headers
+   ```
+   
+   ```
+   $ pip install postgres
+   ```
+   
+   ```
+   $ pip install psycopg2
+   ```
 
 7. Execute the following commands (make sure you are located inside the same folder where the manage.py file is):
 
    ```
-   $ manage.py makemigrations
+   $ python manage.py makemigrations
    ```
    
    ```
