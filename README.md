@@ -54,7 +54,13 @@ This REST API was built using [Django](https://www.djangoproject.com/) and [Djan
    $ pip install psycopg2
    ```
 
-7. Execute the following commands to configure the database:
+7. If you are using **macOS**, start Postgres by running the following command:
+   
+   ```
+   $ pg_ctl -D /usr/local/var/postgres start
+   ```
+   
+   Execute the following commands to configure the database (for **Windows** and **macOS**):
 
    ```
    $ unset PGUSER
@@ -84,6 +90,12 @@ This REST API was built using [Django](https://www.djangoproject.com/) and [Djan
 
    ```
    https://127.0.0.1:8000
+   ```
+
+If you are using **macOS**, when you finish using the app, you can stop Postgres executing the following command:
+
+   ```
+   $ pg_ctl -D /usr/local/var/postgres stop
    ```
    
 ## Questions and Suggestions
