@@ -54,23 +54,33 @@ This REST API was built using [Django](https://www.djangoproject.com/) and [Djan
    $ pip install psycopg2
    ```
 
-7. Execute the following commands (make sure you are located inside the same folder where the manage.py file is):
+7. Execute the following commands to configure the database:
 
    ```
-   $ python manage.py makemigrations
+   $ unset PGUSER
    ```
+   
+   ```
+   $ createuser -s postgres
+   ```
+   
+   ```
+   $ createdb EventLogs
+   ```
+
+8. Execute the following commands (make sure you are located inside the same folder where the manage.py file is):
    
    ```
    $ manage.py migrate
    ```
 
-7. Execute the following command:
+9. Execute the following command:
 
    ```
    $ manage.py runserver
    ```
 
-8. Open your web browser and go to:
+10. Open your web browser and go to:
 
    ```
    https://127.0.0.1:8000
