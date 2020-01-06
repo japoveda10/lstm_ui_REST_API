@@ -68,7 +68,7 @@ This REST API was built using [Django](https://www.djangoproject.com/) and [Djan
    
    `C:\Program Files\PostgreSQL\12\lib`
    
-Finally, in a new Command Propmt, execute:
+   Finally, in a new Command Propmt, execute:
    
    ```
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
