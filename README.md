@@ -70,10 +70,10 @@ If you are using **Windows**, download Postgres from [here](https://www.postgres
    
    
 If you are using **macOS**, execute the following command:
-   
-    ```
-    $ pip install postgres
-    ```
+
+   ```
+   $ pip install postgres
+   ```
 
 ### 8. Run Postgres
 
