@@ -70,10 +70,13 @@ Then, edit the **PATH** environmental variable to include:
    
    `C:\Program Files\PostgreSQL\12\lib`
  
+**Important:** note that there is a 12 in both paths. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in both paths to match your corresponding **Postgres** version number.
+ 
 More detailed instructions on how to install **Postgres** for Windows can be found [here](https://www.postgresqltutorial.com/install-postgresql/).
 
 Instructions on how to edit the **PATH** environmental variable can be found [here](https://sqlbackupandftp.com/blog/setting-windows-path-for-postgres-tools)
-   
+
+
 If you are using **macOS**, execute the following command:
 
    ```
@@ -87,6 +90,9 @@ If you are using **Windows**, in a new Command Propmt execute:
    ```
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
    ```
+
+**Important:** note that there is a 12 in the path. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in the path to match your corresponding **Postgres** version number.
+
 
 If you are using **macOS**, execute the following command:
    
