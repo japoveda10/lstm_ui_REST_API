@@ -62,12 +62,13 @@ Execute the following commands to install the project's dependencies:
 
 ### 7. Install Postgres
 
-If you are using **Windows**, download Postgres from [here](https://www.postgresql.org/) and install it following the Wizard´s instructions. The superuser password has to match the PASSWORD field from `settings.py`. Then, edit the PATH environmental variable to include:
+If you are using **Windows**, download Postgres from [here](https://www.postgresql.org/) and install it following the Wizard´s instructions. The superuser password has to match the PASSWORD field from `settings.py`. Also, make sure that you also install pgAdmin. Then, edit the PATH environmental variable to include:
    
    `C:\Program Files\PostgreSQL\12\bin`
    
    `C:\Program Files\PostgreSQL\12\lib`
-   
+ 
+More detailed instructions on how to install Postgres for Windows can be found [here](https://www.postgresqltutorial.com/install-postgresql/).
    
 If you are using **macOS**, execute the following command:
 
@@ -89,9 +90,18 @@ If you are using **macOS**, execute the following command:
    $ pg_ctl -D /usr/local/var/postgres start
    ```
    
-### 9. Configure database
+### 9. Configure user and database
 
-Execute the following commands to configure the database (for **Windows** and **macOS**):
+If you are using **Windows**, follow these steps:
+
+   9.1 Open pgAdmin
+   9.2 Establish a master password
+   9.3 Click on **Servers** (top left menu) and enter the settings.py
+   9.4 Right click on **Databases**, and then select **Create** > **Database**
+   9.5 In the **Database** field, enter **EventLogs** and click on **Save**
+   9-6 Open **EventLogs** in the left menu
+
+If you are using **macOS**, execute the following commands:
 
    ```
    $ unset PGUSER
