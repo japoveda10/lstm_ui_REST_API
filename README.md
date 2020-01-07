@@ -94,7 +94,7 @@ If you are using **macOS**, execute the following command:
    $ pg_ctl -D /usr/local/var/postgres start
    ```
    
-### 9. Configure user and database
+### 9. Configure Postgres user and database
 
 If you are using **Windows**, follow these steps:
 
