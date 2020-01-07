@@ -28,7 +28,7 @@ Request the `settings.py` file to [japoveda10](https://github.com/japoveda10). W
 
 ### 4. Create a virtual environment to manage the project's dependencies
 
-If you are using **Windows**, follow the instructions available [here](https://programwithus.com/learn-to-code/Pip-and- virtualenv-on-Windows/). If you are using **macOS**, follow the instructions available [here](https://sourabhbajaj.com/mac-   setup/Python/virtualenv.html). 
+If you are using **Windows**, follow the instructions available [here](https://programwithus.com/learn-to-code/Pip-and-virtualenv-on-Windows/). If you are using **macOS**, follow the instructions available [here](https://sourabhbajaj.com/mac-setup/Python/virtualenv.html). 
 
 **Important:** the virtual environment setup instructions for Windows and macOS were not written by us (we are linking you to an external information source).
 
@@ -105,7 +105,7 @@ Execute the following commands to configure the database (for **Windows** and **
    $ createdb EventLogs
    ```
 
-### 10. Migrate Django databases
+### 10. Migrate database
 
 Execute the following commands (make sure you are located inside the same folder where the `manage.py` file is):
    
@@ -127,15 +127,15 @@ Then, open your web browser and go to:
    https://127.0.0.1:8000
    ```
 
-### 12. Stop Postgres after using this project
+### 12. Stop Postgres (after using this project)
 
-If you are using **macOS**, when you finish using the app, you can stop Postgres executing the following command:
+If you are using **macOS**, when you finish using this project, you can stop Postgres executing the following command:
 
    ```
    $ pg_ctl -D /usr/local/var/postgres stop
    ```
    
-If you are using **Windows**, when you finish using the app, you can stop Postgres executing the following command:
+If you are using **Windows**, when you finish using this project, you can stop Postgres executing the following command:
 
    ```
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" stop
