@@ -98,6 +98,7 @@ More detailed instructions on how to install **Postgres** for Windows can be fou
 
 Instructions on how to edit the **PATH** environmental variable can be found [here](https://sqlbackupandftp.com/blog/setting-windows-path-for-postgres-tools)
 
+<br />
 
 If you are using **macOS**, execute the following command:
 
@@ -119,6 +120,7 @@ If you are using **Windows**, in a new Command Propmt execute:
 
 *Note that there is a 12 in the path. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in the path to match your corresponding **Postgres** version number.*
 
+<br />
 
 If you are using **macOS**, execute the following command:
    
