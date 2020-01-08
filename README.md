@@ -164,11 +164,11 @@ If you are using **macOS**, execute the following commands:
 Execute the following commands (make sure you are located inside the same folder where the `manage.py` file is):
    
    ```
-   $ manage.py makemigrations
+   $ python manage.py makemigrations
    ```
    
    ```
-   $ manage.py migrate
+   $ python manage.py migrate
    ```
 
 <br />
@@ -178,7 +178,7 @@ Execute the following commands (make sure you are located inside the same folder
 Execute the following command:
 
    ```
-   $ manage.py runserver
+   $ python manage.py runserver
    ```
    
 Then, open your web browser and go to:
