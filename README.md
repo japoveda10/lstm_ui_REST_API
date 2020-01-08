@@ -18,7 +18,9 @@ This **REST API** was built using [Django](https://www.djangoproject.com/) and [
 
 Download this GitHub repository. To do so, you can execute the following command in your cmd/terminal window:
 
-   `$ git clone https://github.com/japoveda10/lstm_ui_REST_API.git`
+   ```
+   $ git clone https://github.com/japoveda10/lstm_ui_REST_API.git
+   ```
 
 <br />
 
@@ -80,9 +82,13 @@ If you are using **Windows**, download **Postgres** from [here](https://www.post
 
 Then, edit the **PATH** environmental variable to include:
    
-   `C:\Program Files\PostgreSQL\12\bin`
+   ```
+   C:\Program Files\PostgreSQL\12\bin
+   ```
    
-   `C:\Program Files\PostgreSQL\12\lib`
+   ```
+   C:\Program Files\PostgreSQL\12\lib
+   ```
  
 ***Important:***
 
