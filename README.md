@@ -10,7 +10,7 @@ This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/l
 
 ## How was it built?
 
-This REST API was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
+This **REST API** was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
 ## How can I run it?
 
@@ -30,7 +30,7 @@ Request the `settings.py` file to [japoveda10](https://github.com/japoveda10). W
 
 If you are using **Windows**, follow the instructions available [here](https://programwithus.com/learn-to-code/Pip-and-virtualenv-on-Windows/). If you are using **macOS**, follow the instructions available [here](https://sourabhbajaj.com/mac-setup/Python/virtualenv.html). 
 
-**Important:** 
+***Important:***
 
 The virtual environment setup instructions for Windows and macOS were not written by us (we are linking you to an external information source).
 
@@ -72,7 +72,7 @@ Then, edit the **PATH** environmental variable to include:
    
    `C:\Program Files\PostgreSQL\12\lib`
  
-**Important:** 
+***Important:***
 
 Note that there is a 12 in both paths. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in both paths to match your corresponding **Postgres** version number.
  
@@ -95,7 +95,7 @@ If you are using **Windows**, in a new Command Propmt execute:
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
    ```
 
-**Important:** 
+***Important:***
 
 Note that there is a 12 in the path. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in the path to match your corresponding **Postgres** version number.
 
@@ -170,7 +170,7 @@ If you are using **Windows**, when you finish using this project, you can stop P
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" stop
    ```
 
-**Important:** 
+***Important:***
 
 Note that there is a 12 in the path. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in the path to match your corresponding **Postgres** version number.
 
