@@ -211,6 +211,10 @@ If you are using **macOS**, when you finish using this project, you can stop **P
 
 <br />
 
+***Important:***
+
+*Everytime you want to run this project, you have to activate the project's virtual environment, run Postgres (see commands in section **8. Run Postgres** above), and finally execute the `python manage.py runserver` command).*
+
 ## Questions and Suggestions
 
 If you have questions or suggestions about this project, please contact [japoveda10](https://github.com/japoveda10)
