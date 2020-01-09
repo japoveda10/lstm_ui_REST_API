@@ -238,18 +238,156 @@ class RunningCaseDetail(APIView):
         running_case.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-'''
-# Activity ViewSet
-class ActivityViewSet(viewsets.ModelViewSet):
-    queryset = Activity.objects.all()
-    serializer_class = ActivitySerializer
+# Activity List
+class ActivityList(APIView):
+    """
+    List all activities, or create a new activity
+    """
+    def get(self, request, format=None):
+        print("GET activities")
+        activities = Activity.objects.all()
+        serializer = ActivitySerializer(activities, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        print("POST activities")
+        serializer = ActivitySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# Role ViewSet
-class RoleViewSet(viewsets.ModelViewSet):
-    queryset = Role.objects.all()
-    serializer_class = RoleSerializer
+# Activity Detail
+class ActivityDetail(APIView):
+    """
+    Retrieve, update or delete an activity instance
+    """
+    def get_object(self, pk):
+        try:
+            return Activity.objects.get(pk=pk)
+        except Activity.DoesNotExist:
+            raise Http404
 
-# Time ViewSet
-class TimeViewSet(viewsets.ModelViewSet):
-    queryset = Time.objects.all()
-    serializer_class = TimeSerializer'''
+    def get(self, request, pk, format=None):
+        print("GET specific activity")
+        activity = self.get_object(pk)
+        serializer = ActivitySerializer(activity)
+        return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        print("UPDATE specific activity")
+        activity = self.get_object(pk)
+        serializer = ActivitySerializer(activity, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        print("DELTE specific activity")
+        activity = self.get_object(pk)
+        activity.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+# Role List
+class RoleList(APIView):
+    """
+    List all roles, or create a new role
+    """
+    def get(self, request, format=None):
+        print("GET roles")
+        roles = Role.objects.all()
+        serializer = RoleSerializer(roles, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        print("POST roles")
+        serializer = RoleSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Role Detail
+class RoleDetail(APIView):
+    """
+    Retrieve, update or delete a role instance
+    """
+    def get_object(self, pk):
+        try:
+            return Role.objects.get(pk=pk)
+        except Role.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        print("GET specific role")
+        role = self.get_object(pk)
+        serializer = RoleSerializer(role)
+        return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        print("UPDATE specific role")
+        role = self.get_object(pk)
+        serializer = RoleSerializer(role, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        print("DELTE specific role")
+        role = self.get_object(pk)
+        role.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+# Time List
+class TimeList(APIView):
+    """
+    List all times, or create a new time
+    """
+    def get(self, request, format=None):
+        print("GET times")
+        times = Time.objects.all()
+        serializer = TimeSerializer(roles, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        print("POST times")
+        serializer = TimeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Time Detail
+class TimeDetail(APIView):
+    """
+    Retrieve, update or delete a time instance
+    """
+    def get_object(self, pk):
+        try:
+            return Time.objects.get(pk=pk)
+        except Time.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        print("GET specific time")
+        time = self.get_object(pk)
+        serializer = TimeSerializer(time)
+        return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        print("UPDATE specific time")
+        time = self.get_object(pk)
+        serializer = TimeSerializer(role, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        print("DELTE specific time")
+        role = self.get_object(pk)
+        role.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
