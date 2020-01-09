@@ -12,7 +12,7 @@ This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/l
 
 This **REST API** was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
 
-## How can I run it?
+## How can I install it?
 
 #### 1. Download the project
 
@@ -110,7 +110,7 @@ If you are using **macOS**, execute the following command:
 
 #### 8. Run Postgres
 
-If you are using **Windows**, in a new Command Propmt execute:
+If you are using **Windows**, in a new Command Prompt execute:
    
    ```
    $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
@@ -173,7 +173,37 @@ Execute the following commands (make sure you are located inside the same folder
 
 <br />
 
-#### 11. Run the project
+## How can I run it?
+
+#### 1. Activate project's virtual environment
+
+If you are using **Windows**, follow the instructions to activate a virtual environment available [here](https://programwithus.com/learn-to-code/Pip-and-virtualenv-on-Windows/). If you are using **macOS**, follow the instructions to activate a virtual environment available [here](https://sourabhbajaj.com/mac-setup/Python/virtualenv.html).
+
+<br />
+
+#### 2. Run Postgres
+
+If you are using **Windows**, in a new Command Prompt execute:
+   
+   ```
+   $ pg_ctl -D "C:\Program Files\PostgreSQL\12\data" start
+   ```
+
+***Important:***
+
+*Note that there is a 12 in the path. This is because the installed **pgAdmin** version was 12. Check if your installed **Postgres** version is the same. If it is not, please change the version number in the path to match your corresponding **Postgres** version number.*
+
+<br />
+
+If you are using **macOS**, execute the following command:
+   
+   ```
+   $ pg_ctl -D /usr/local/var/postgres start
+   ```
+ 
+ <br />
+
+#### 3. Run project
 
 Execute the following command:
 
@@ -189,7 +219,7 @@ Then, open your web browser and go to:
 
 <br />
 
-#### 12. Stop Postgres (after using this project)
+#### How can I stop Postgres (after using this project)?
 
 If you are using **Windows**, when you finish using this project, you can stop **Postgres** executing the following command:
 
@@ -210,10 +240,6 @@ If you are using **macOS**, when you finish using this project, you can stop **P
    ```
 
 <br />
-
-***Important:***
-
-*Everytime you want to run this project, you have to activate the project's virtual environment, run **Postgres** (see commands in section **8. Run Postgres** above), and execute the `python manage.py runserver` command.*
 
 ## Questions and Suggestions
 
