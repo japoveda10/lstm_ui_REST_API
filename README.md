@@ -213,7 +213,7 @@ If you are using **macOS**, when you finish using this project, you can stop **P
 
 ***Important:***
 
-*Everytime you want to run this project, you have to activate the project's virtual environment, run Postgres (see commands in section **8. Run Postgres** above), and finally execute the `python manage.py runserver` command).*
+*Everytime you want to run this project, you have to activate the project's virtual environment, run **Postgres** (see commands in section **8. Run Postgres** above), and execute the `python manage.py runserver` command.*
 
 ## Questions and Suggestions
 
