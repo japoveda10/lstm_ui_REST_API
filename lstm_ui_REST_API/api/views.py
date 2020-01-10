@@ -192,7 +192,7 @@ class RunningCaseList(APIView):
     """
     List all running cases, or create a new running case
     """
-    def get(self, request, format=None):
+    def get(self, request, pk, format=None):
         print("GET running cases")
         running_cases = RunningCase.objects.all()
         serializer = RunningCaseSerializer(running_cases, many=True)
