@@ -8,8 +8,8 @@
 #------------------------------------------------------------------------------
 # Imports
 #------------------------------------------------------------------------------
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, RoleSequence
-from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, RoleSequenceSerializer
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role
+from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, RoleSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -289,53 +289,53 @@ class ActivityDetail(APIView):
         activity.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-# Role Sequence List
-class RoleSequenceList(APIView):
+# Role List
+class RoleList(APIView):
     """
-    List all role sequences, or create a new role sequence
+    List all roles, or create a new role
     """
     def get(self, request, format=None):
-        print("GET role sequences")
-        role_sequences = RoleSequence.objects.all()
-        serializer = RoleSequenceSerializer(roles, many=True)
+        print("GET roles")
+        roles = Role.objects.all()
+        serializer = RoleSerializer(roles, many=True)
         return Response(serializer.data)
     
     def post(self, request, format=None):
-        print("POST role sequences")
-        serializer = RoleSequenceSerializer(data=request.data)
+        print("POST roles")
+        serializer = RoleSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# Role Sequence Detail
-class RoleSequenceDetail(APIView):
+# Role Detail
+class RoleDetail(APIView):
     """
-    Retrieve, update or delete a role sequence instance
+    Retrieve, update or delete a role instance
     """
     def get_object(self, pk):
         try:
-            return RoleSequence.objects.get(pk=pk)
-        except RoleSequence.DoesNotExist:
+            return Role.objects.get(pk=pk)
+        except Role.DoesNotExist:
             raise Http404
 
     def get(self, request, pk, format=None):
-        print("GET specific role sequence")
-        role_sequence = self.get_object(pk)
-        serializer = RoleSequenceSerializer(role)
+        print("GET specific role")
+        role = self.get_object(pk)
+        serializer = RoleSerializer(role)
         return Response(serializer.data)
     
     def put(self, request, pk, format=None):
-        print("UPDATE specific role sequence")
+        print("UPDATE specific role")
         role = self.get_object(pk)
-        serializer = RoleSequenceSerializer(role, data=request.data)
+        serializer = RoleSerializer(role, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        print("DELTE specific role sequence")
-        role_sequence = self.get_object(pk)
-        role_sequence.delete()
+        print("DELTE specific role")
+        role = self.get_object(pk)
+        role.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
