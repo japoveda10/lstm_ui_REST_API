@@ -9,7 +9,7 @@
 # Imports
 #------------------------------------------------------------------------------
 from rest_framework import serializers
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, Time
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role
 
 #------------------------------------------------------------------------------
 # Classes that represent serializers
@@ -159,31 +159,6 @@ class RoleSerializer(serializers.Serializer):
         """
         instance.role_id = validated_data.get('role_id', instance.role_id)
         instance.role_name = validated_data.get('role_name', instance.role_name)
-        instance.activity = validated_data.get('activity', instance.activity)
-        instance.save()
-        return instance
-
-# Time Serializer
-class TimeSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    min = serializers.IntegerField(required=True)
-    max = serializers.IntegerField(required=True)
-    mean = serializers.IntegerField(required=True)
-    activity = ActivitySerializer(many=True)
-
-    def create(self, validated_data):
-        """
-        Create and return a new `Time` instance, given the validated data.
-        """
-        return Time.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        """
-        Update and return an existing `Time` instance, given the validated data.
-        """
-        instance.min = validated_data.get('min', instance.min)
-        instance.max = validated_data.get('max', instance.max)
-        instance.mean = validated_data.get('mean', instance.mean)
         instance.activity = validated_data.get('activity', instance.activity)
         instance.save()
         return instance

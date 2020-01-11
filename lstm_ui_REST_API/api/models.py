@@ -72,13 +72,3 @@ class Role(models.Model):
 
     def __str__(self):
         return self.role_name
-
-# Time Model
-class Time(models.Model):
-    min = models.IntegerField(default=0)
-    max = models.IntegerField(default=0)
-    mean = models.IntegerField(default=0)
-    activity = models.OneToOneField(Activity, default="", on_delete = models.CASCADE)
-
-    def __str__(self):
-        return self.mean
