@@ -9,7 +9,7 @@
 # Imports
 #------------------------------------------------------------------------------
 from rest_framework import serializers
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, RoleSequence
 
 #------------------------------------------------------------------------------
 # Classes that represent serializers
@@ -140,25 +140,25 @@ class ActivitySerializer(serializers.Serializer):
         instance.save()
         return instance
 
-# Role Serializer
-class RoleSerializer(serializers.Serializer):
+# Role Sequence Serializer
+class RoleSequenceSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    role_id = serializers.IntegerField(required=True)
-    role_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    role_sequence_id = serializers.IntegerField(required=True)
+    role_sequence_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
     activity = ActivitySerializer(many=True)
 
     def create(self, validated_data):
         """
-        Create and return a new `Role` instance, given the validated data.
+        Create and return a new `RoleSequence` instance, given the validated data.
         """
-        return Role.objects.create(**validated_data)
+        return RoleSequence.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         """
-        Update and return an existing `Role` instance, given the validated data.
+        Update and return an existing `RoleSequence` instance, given the validated data.
         """
-        instance.role_id = validated_data.get('role_id', instance.role_id)
-        instance.role_name = validated_data.get('role_name', instance.role_name)
+        instance.role_sequence_id = validated_data.get('role_sequence_id', instance.role_sequence_id)
+        instance.role_sequence_name = validated_data.get('role_sequence_name', instance.role_sequence_name)
         instance.activity = validated_data.get('activity', instance.activity)
         instance.save()
         return instance
