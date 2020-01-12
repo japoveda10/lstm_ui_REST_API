@@ -9,7 +9,7 @@
 # Imports
 #------------------------------------------------------------------------------
 from rest_framework import serializers
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, RoleSequence
 
 #------------------------------------------------------------------------------
 # Classes that represent serializers
@@ -160,5 +160,25 @@ class RoleSerializer(serializers.Serializer):
         instance.role_id = validated_data.get('role_id', instance.role_id)
         instance.role_name = validated_data.get('role_name', instance.role_name)
         instance.activity = validated_data.get('activity', instance.activity)
+        instance.save()
+        return instance
+
+# Role Sequence Serializer
+class RoleSequenceSerializer(serializers.Serializer):
+    role_id = serializers.IntegerField(required=True)
+    other_id = serializers.IntegerField(required=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `RoleSequence` instance, given the validated data.
+        """
+        return RoleSequence.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `RoleSequence` instance, given the validated data.
+        """
+        instance.sequence_id = validated_data.get('sequence_id', instance.sequence_id)
+        instance.other_id = validated_data.get('other_id', instance.other_id)
         instance.save()
         return instance

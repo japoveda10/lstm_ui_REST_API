@@ -72,3 +72,11 @@ class Role(models.Model):
 
     def __str__(self):
         return self.role_name
+
+# Role Sequence Model
+class RoleSequence(models.Model):
+    sequence_id = models.IntegerField(default=0)
+    other_id = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.role_name
