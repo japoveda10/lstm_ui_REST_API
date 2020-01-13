@@ -64,6 +64,14 @@ class Activity(models.Model):
     def __str__(self):
         return self.activity_name
 
+# Activity Sequence Model
+class ActivitySequence(models.Model):
+    sequence_id = models.IntegerField(default=0)
+    other_id = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.role_name
+
 # Role Model
 class Role(models.Model):
     role_id = models.IntegerField(default=0)

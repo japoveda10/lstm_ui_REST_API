@@ -8,8 +8,8 @@
 #------------------------------------------------------------------------------
 # Imports
 #------------------------------------------------------------------------------
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, RoleSequence
-from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, RoleSerializer, RoleSequenceSerializer
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, ActivitySequence, Role, RoleSequence
+from .serializers import EventLogSerializer, TrainedModelSerializer, ResultSerializer, RunningCaseSerializer, ActivitySerializer, ActivitySequenceSerializer, RoleSerializer, RoleSequenceSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -287,6 +287,57 @@ class ActivityDetail(APIView):
         print("DELTE specific activity")
         activity = self.get_object(pk)
         activity.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+# Activity Sequence List
+class ActivitySequenceList(APIView):
+    """
+    List all activity sequences, or create a new activity sequence
+    """
+    def get(self, request, format=None):
+        print("GET activity sequences")
+        activity_sequences = ActivitySequence.objects.all()
+        serializer = ActivitySequenceSerializer(activity_sequences, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        print("POST activity sequences")
+        serializer = ActivitySequenceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Role Sequence Detail
+class RoleSequenceDetail(APIView):
+    """
+    Retrieve, update or delete a role sequence instance
+    """
+    def get_object(self, pk):
+        try:
+            return RoleSequence.objects.get(pk=pk)
+        except RoleSequence.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        print("GET specific role sequence")
+        role_sequence = self.get_object(pk)
+        serializer = RoleSequenceSerializer(role_sequence)
+        return Response(serializer.data)
+    
+    def put(self, request, pk, format=None):
+        print("UPDATE specific role sequence")
+        role_sequence = self.get_object(pk)
+        serializer = RoleSequenceSerializer(role_sequence, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        print("DELTE specific role sequence")
+        role_sequence = self.get_object(pk)
+        role_sequence.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 # Role List

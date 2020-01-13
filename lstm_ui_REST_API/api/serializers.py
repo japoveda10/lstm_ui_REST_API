@@ -9,7 +9,7 @@
 # Imports
 #------------------------------------------------------------------------------
 from rest_framework import serializers
-from .models import EventLog, TrainedModel, Result, RunningCase, Activity, Role, RoleSequence
+from .models import EventLog, TrainedModel, Result, RunningCase, Activity, ActivitySequence, Role, RoleSequence
 
 #------------------------------------------------------------------------------
 # Classes that represent serializers
@@ -140,6 +140,26 @@ class ActivitySerializer(serializers.Serializer):
         instance.save()
         return instance
 
+# Activity Sequence Serializer
+class ActivitySequenceSerializer(serializers.Serializer):
+    sequence_id = serializers.IntegerField(required=True)
+    other_id = serializers.IntegerField(required=True)
+
+    def create(self, validated_data):
+        """
+        Create and return a new `ActivitySequence` instance, given the validated data.
+        """
+        return ActivitySequence.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """
+        Update and return an existing `ActivitySequence` instance, given the validated data.
+        """
+        instance.sequence_id = validated_data.get('sequence_id', instance.sequence_id)
+        instance.other_id = validated_data.get('other_id', instance.other_id)
+        instance.save()
+        return instance
+
 # Role Serializer
 class RoleSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -165,7 +185,7 @@ class RoleSerializer(serializers.Serializer):
 
 # Role Sequence Serializer
 class RoleSequenceSerializer(serializers.Serializer):
-    role_id = serializers.IntegerField(required=True)
+    sequence_id = serializers.IntegerField(required=True)
     other_id = serializers.IntegerField(required=True)
 
     def create(self, validated_data):
