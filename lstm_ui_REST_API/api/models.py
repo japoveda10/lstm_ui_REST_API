@@ -54,6 +54,7 @@ class RunningCase(models.Model):
     prefix_size = models.IntegerField(default=0)
     event_log = models.ForeignKey(EventLog, default="", on_delete=models.CASCADE)
     role_sequences = models.ManyToManyField('RoleSequence')
+    activity_sequences = models.ManyToManyField('ActivitySequence')
 
     def __str__(self):
         return self.prefix_size
