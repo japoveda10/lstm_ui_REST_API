@@ -76,7 +76,6 @@ class ActivitySequence(models.Model):
 class Role(models.Model):
     role_id = models.IntegerField(default=0)
     role_name = models.CharField(max_length=100, default="")
-    activity = models.ForeignKey(Activity, default="", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.role_name
