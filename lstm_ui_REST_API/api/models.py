@@ -25,6 +25,7 @@ class EventLog(models.Model):
     mean_duration = models.CharField(max_length=100, default="0 days")
     max_duration = models.CharField(max_length=100, default="0 days")
     roles = models.ManyToManyField('Role')
+    activities = models.ManyToManyField('Activity')
 
     def __str__(self):
         return self.name
