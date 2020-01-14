@@ -24,6 +24,7 @@ class EventLog(models.Model):
     max_activities_per_trace = models.FloatField(default=0)
     mean_duration = models.CharField(max_length=100, default="0 days")
     max_duration = models.CharField(max_length=100, default="0 days")
+    roles = models.ManyToManyField('Role')
 
     def __str__(self):
         return self.name
