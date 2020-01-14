@@ -59,15 +59,6 @@ class RunningCase(models.Model):
     def __str__(self):
         return self.prefix_size
 
-# Activity Model
-class Activity(models.Model):
-    activity_number = models.IntegerField(default=0)
-    activity_name = models.CharField(max_length=100, default="")
-    running_case = models.ForeignKey(RunningCase, default="", on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.activity_name
-
 # Activity Sequence Model
 class ActivitySequence(models.Model):
     sequence_id = models.IntegerField(default=0)
@@ -75,6 +66,16 @@ class ActivitySequence(models.Model):
 
     def __str__(self):
         return self.role_name
+
+# Activity Model
+class Activity(models.Model):
+    activity_number = models.IntegerField(default=0)
+    activity_name = models.CharField(max_length=100, default="")
+    running_case = models.ForeignKey(RunningCase, default="", on_delete=models.CASCADE)
+    activity_sequence = models.ForeignKey(ActivitySequence, default="", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.activity_name
 
 # Role Sequence Model
 class RoleSequence(models.Model):
@@ -88,7 +89,7 @@ class RoleSequence(models.Model):
 class Role(models.Model):
     role_id = models.IntegerField(default=0)
     role_name = models.CharField(max_length=100, default="")
-    role_sequence = models.ForeignKey(RoleSequence, default = "", on_delete=models.CASCADE)
+    role_sequence = models.ForeignKey(RoleSequence, default="", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.role_name
