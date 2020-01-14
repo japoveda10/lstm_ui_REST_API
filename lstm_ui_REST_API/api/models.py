@@ -76,18 +76,19 @@ class ActivitySequence(models.Model):
     def __str__(self):
         return self.role_name
 
-# Role Model
-class Role(models.Model):
-    role_id = models.IntegerField(default=0)
-    role_name = models.CharField(max_length=100, default="")
-
-    def __str__(self):
-        return self.role_name
-
 # Role Sequence Model
 class RoleSequence(models.Model):
     sequence_id = models.IntegerField(default=0)
     other_id = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.role_name
+
+# Role Model
+class Role(models.Model):
+    role_id = models.IntegerField(default=0)
+    role_name = models.CharField(max_length=100, default="")
+    role_sequence = models.ForeignKey(RoleSequence, default = "", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.role_name
