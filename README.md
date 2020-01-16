@@ -73,6 +73,22 @@ Execute the following commands to install the project's dependencies:
    ```
    $ pip install psycopg2
    ```
+   
+   ```
+   $ pip install pandas
+   ```
+   
+   ```
+   $ pip install scipy
+   ```
+   
+   ```
+   $ pip install networkx
+   ```
+   
+   ```
+   $ pip install matplotlib
+   ```
 
 <br />
 
