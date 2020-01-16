@@ -245,6 +245,6 @@ If you are using **macOS**, when you finish using this project, you can stop **P
 
 If you have questions or suggestions about this project, please contact [japoveda10](https://github.com/japoveda10)
 
-## Author
+## Authors
 
-[japoveda10](https://github.com/japoveda10)
+[japoveda10](https://github.com/japoveda10) and [Mcamargo85](https://github.com/Mcamargo85)
