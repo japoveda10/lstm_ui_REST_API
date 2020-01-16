@@ -49,15 +49,13 @@ class Result(models.Model):
     def __str__(self):
         return self.mae
 
-# Running Case Model
-class RunningCase(models.Model):
-    prefix_size = models.IntegerField(default=0)
-    event_log = models.ForeignKey(EventLog, default="", on_delete=models.CASCADE)
-    role_sequences = models.ManyToManyField('RoleSequence')
-    activity_sequences = models.ManyToManyField('ActivitySequence')
+# Role Sequence Model
+class RoleSequence(models.Model):
+    sequence_id = models.IntegerField(default=0)
+    other_id = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.prefix_size
+        return self.role_name
 
 # Activity Sequence Model
 class ActivitySequence(models.Model):
@@ -68,6 +66,16 @@ class ActivitySequence(models.Model):
     def __str__(self):
         return self.role_name
 
+# Running Case Model
+class RunningCase(models.Model):
+    prefix_size = models.IntegerField(default=0)
+    event_log = models.ForeignKey(EventLog, default="", on_delete=models.CASCADE)
+    role_sequence_id = models.ForeignKey(RoleSequence, default="", on_delete=models.CASCADE)
+    activity_sequence_id = models.ForeignKey(ActivitySequence, default="", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.prefix_size
+
 # Activity Model
 class Activity(models.Model):
     activity_number = models.IntegerField(default=0)
@@ -76,14 +84,6 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.activity_name
-
-# Role Sequence Model
-class RoleSequence(models.Model):
-    sequence_id = models.IntegerField(default=0)
-    other_id = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.role_name
 
 # Role Model
 class Role(models.Model):
