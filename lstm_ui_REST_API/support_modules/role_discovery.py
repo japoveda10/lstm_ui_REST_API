@@ -97,6 +97,10 @@ def role_definition(sub_graphs,users):
     return records, resource_table
 # --kernel--
 
+def connected_component_subgraphs_fix(G):
+    for c in nx.connected_components(G):
+        yield G.subgraph(c)
+
 def role_discovery(data, drawing, sim_percentage):
     tasks = list(set(list(map(lambda x: x[0], data))))
     try:
@@ -132,7 +136,7 @@ def role_discovery(data, drawing, sim_percentage):
             g.add_edge(relation['x'],relation['y'],weight=relation['distance'])
 #    sup.print_progress(((60 / 100)* 100),'Analysing resource pool ')
     # extraction of fully conected subgraphs as roles
-    sub_graphs = list(nx.connected_component_subgraphs(g))
+    sub_graphs = list(connected_component_subgraphs_fix(g))
 #    sup.print_progress(((80 / 100)* 100),'Analysing resource pool ')
     # role definition from graph
     roles = role_definition(sub_graphs,users)
