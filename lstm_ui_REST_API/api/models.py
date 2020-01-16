@@ -72,7 +72,6 @@ class ActivitySequence(models.Model):
 class Activity(models.Model):
     activity_number = models.IntegerField(default=0)
     activity_name = models.CharField(max_length=100, default="")
-    running_case = models.ForeignKey(RunningCase, default="", on_delete=models.CASCADE)
     activity_sequence = models.ForeignKey(ActivitySequence, default="", on_delete=models.CASCADE)
 
     def __str__(self):
