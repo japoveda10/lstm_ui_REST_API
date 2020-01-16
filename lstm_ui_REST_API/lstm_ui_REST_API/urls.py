@@ -8,6 +8,8 @@
 #------------------------------------------------------------------------------
 # Imports
 #------------------------------------------------------------------------------
+import os
+
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -30,3 +32,7 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+print("Ready to execute event_log_services.py")
+os.system("python event_log_services.py")
+print("Finished executing event_log_services.py")
