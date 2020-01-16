@@ -5,6 +5,13 @@ Created on Fri Dec 20 16:11:48 2019
 @author: Manuel Camargo
 """
 
+#------------------------------------------------------------------------------
+# LSTM UI REST API Project
+# By Manuel Camargo
+# event_log_services.py
+# This file creates the project's tables
+#------------------------------------------------------------------------------
+
 import os
 import random
 import itertools
@@ -121,7 +128,7 @@ def generate_running_cases(log_df, activities_table, roles_table, parms):
                 })
     return all_prefixes
 
-def create_series_table(all_prefixes, attr, attr1,table, pr):
+def create_series_table(all_prefixes, attr, attr1, table, pr):
     attribute = dict()
     attribute_series = list()
     for prefix in all_prefixes:
