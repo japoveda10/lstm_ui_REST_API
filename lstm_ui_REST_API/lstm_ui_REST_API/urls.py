@@ -29,6 +29,7 @@ urlpatterns = [
     path('event_logs/', views.EventLogList.as_view(), name='event_log-list'),
     path('event_logs/<int:pk>/', views.EventLogDetail.as_view()),
     path('event_logs/<int:pk>/running_cases/', views.RunningCaseList.as_view()),
+    path('event_logs/<int:pk1>/running_cases/<int:pk2>', views.RunningCaseDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -69,7 +69,9 @@ class ActivitySequence(models.Model):
 # Running Case Model
 class RunningCase(models.Model):
     prefix_size = models.IntegerField(default=0)
-    event_log = models.ForeignKey(EventLog, default="", on_delete=models.CASCADE)
+    #event_log = models.ForeignKey('EventLog', default="", on_delete=models.CASCADE)
+    event_log_name = models.ForeignKey('EventLog', db_column='name', default="", on_delete=models.CASCADE)
+    #event_log_name = models.CharField(max_length=100, default="0 days")
     role_sequence_id = models.ForeignKey(RoleSequence, default="", on_delete=models.CASCADE)
     activity_sequence_id = models.ForeignKey(ActivitySequence, default="", on_delete=models.CASCADE)
 

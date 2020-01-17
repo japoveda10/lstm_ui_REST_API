@@ -52,7 +52,7 @@ class EventLogSerializer(serializers.Serializer):
 class RunningCaseSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     prefix_size = serializers.IntegerField(required=True)
-    event_log = EventLogSerializer(many=True)
+    event_log_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
 
     def create(self, validated_data):
         """

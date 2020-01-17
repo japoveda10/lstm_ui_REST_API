@@ -198,7 +198,7 @@ class RunningCaseList(APIView):
         serializer = RunningCaseSerializer(running_cases, many=True)
         return Response(serializer.data)
     
-    def post(self, request, format=None):
+    def post(self, request, pk, format=None):
         print("POST running cases")
         serializer = RunningCaseSerializer(data=request.data)
         if serializer.is_valid():
