@@ -1,0 +1,13 @@
+{
+	"id": 1,
+	"name": "Event Log 1",
+	"number_of_traces": 2,
+	"number_of_events": 2,
+	"number_of_activities": 1,
+	"avg_activities_per_trace": 1,
+	"max_activities_per_trace": 1,
+	"mean_duration": "1 day",
+	"max_duration": "2 days",
+	"roles": "",
+	"activities": ""
+}
