@@ -52,7 +52,9 @@ class EventLogSerializer(serializers.Serializer):
 class RunningCaseSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     prefix_size = serializers.IntegerField(required=True)
-    event_log_name = serializers.CharField(required=True, allow_blank=False, max_length=100)
+    event_log = serializers.IntegerField(required=True)
+    role_sequence = serializers.IntegerField(required=True)
+    activity_sequence = serializers.IntegerField(required=True)
 
     def create(self, validated_data):
         """
@@ -66,6 +68,8 @@ class RunningCaseSerializer(serializers.Serializer):
         """
         instance.prefix_size = validated_data.get('prefix_size', instance.prefix_size)
         instance.event_log = validated_data.get('event_log', instance.event_log)
+        instance.role_sequence = validated_data.get('role_sequence', instance.role_sequence)
+        instance.activity_sequence = validated_data.get('activity_sequence', instance.activity_sequence)
         instance.save()
         return instance
 
