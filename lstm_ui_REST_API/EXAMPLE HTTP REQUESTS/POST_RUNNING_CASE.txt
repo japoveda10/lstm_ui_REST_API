@@ -1,6 +1,6 @@
 {
-	"prefix_size": "1",
-	"event_log_name": "Event Log 1",
-	"role_sequence_id": "",
-	"activity_sequence_id": ""
+	"prefix_size": 1,
+	"event_log": 9,
+	"role_sequence": 1,
+	"activity_sequence": 1
 }
