@@ -10,7 +10,7 @@ This is a **REST API** for the [LSTM UI Project](https://github.com/japoveda10/l
 
 ## How was it built?
 
-This **REST API** was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/).
+This **REST API** was built using [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/). Implementation details are available [here](https://github.com/japoveda10/lstm_ui_REST_API/blob/master/IMPLEMENTATION_DETAILS.md)
 
 ## How can I install it?
 
