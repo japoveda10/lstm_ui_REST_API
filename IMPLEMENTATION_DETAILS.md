@@ -10,22 +10,22 @@
 ├── package-lock.json
 ├── package.json
 ├── public
-    ├── favicon.ico                # Default favicon
-    └── index.html                 # Main HTML file
+    ├── favicon.ico                        # Default favicon
+    └── index.html                         # Main HTML file
 ├── README.md
 └── src
-    ├── App.vue                    # App component
-    ├── chart-data.js              # Example results data
+    ├── App.vue                            # App component
+    ├── chart-data.js                      # Example results data
     ├── components
-        ├── layout                 # Layout components
+        ├── layout                         # Layout components
             └── Header.vue
         ├── RunningCase.vue
         ├── RunningCases.vue
         ├── SelectEventLogForm.vue
         └── SelectRunningCaseForm.vue
-    ├── main.js
+    ├── main.js                            # Entry point
     ├── router
-        └── index.js
+        └── index.js                       # Defines app's routes
     └── views
         ├── About.vue
         ├── ContactUs.vue
@@ -34,8 +34,10 @@
         └── Results.vue
 ```
 
-Vue.js have **components**. Components have three main tags:
+**Vue.js** views are built with **components**. **Components** have three main tags:
 
-* <template></template>     - HTML
-* <script></script>         - JS  
-* <style scoped></style>    - CSS
+* template - HTML
+* script   - JavaScript
+* style    - CSS
+
+**Components** have **Lifecycle Hooks**, like `mounted()`, that allow the developer to do specific things when a component is created, updated, deleted, etc.
