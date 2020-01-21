@@ -39,3 +39,12 @@
 ```
 
 Django projects have **apps**. This project has one app: **api**.
+
+The API was built using **Django REST Framework**.
+
+For the API to work, four main files work together:
+
+* `models.py` define Django models
+* `serializers.py` define serializers (convert database data to Django models and vice versa)
+* `views.py` defines the endpoints
+* `urls.py` defines the project's routes
