@@ -65,7 +65,7 @@ This project uses `Serializer`s and **class-based views** (using the `APIView` c
 
 For the **API** to work, four main files work together:
 
-* `models.py` define **Django models**
-* `serializers.py` define **serializers** (convert database data to Django models and vice versa)
+* `models.py` defines **Django models**
+* `serializers.py` defines **serializers** (convert database data to Django models and vice versa)
 * `views.py` defines the **endpoints**
 * `urls.py` defines the project's **routes**
