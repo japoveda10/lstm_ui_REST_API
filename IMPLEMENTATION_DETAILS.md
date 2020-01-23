@@ -50,13 +50,6 @@ Django projects have **apps**. This project has one app: **api**.
 
 The API was built using **Django REST Framework**.
 
-For the API to work, four main files work together:
-
-* `models.py` define Django models
-* `serializers.py` define serializers (convert database data to Django models and vice versa)
-* `views.py` defines the endpoints
-* `urls.py` defines the project's routes
-
 **Django REST Framework** offers many ways to create an API:
 
 * `HyperlinkedModelSerializer`s with `ModelViewSet`s (automatically generates the endpoints, but specific HTTP requests are not detectable in the code)
@@ -66,4 +59,13 @@ For the API to work, four main files work together:
 * `ViewSet`s
 * `Serializer`s and **class-based views** (using the `APIView` class in `views.py`)
 
+<br />
+
 This project uses `Serializer`s and **class-based views** (using the `APIView` class in `views.py`)
+
+For the API to work, four main files work together:
+
+* `models.py` define Django models
+* `serializers.py` define serializers (convert database data to Django models and vice versa)
+* `views.py` defines the endpoints
+* `urls.py` defines the project's routes
