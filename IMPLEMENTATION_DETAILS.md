@@ -63,7 +63,7 @@ For more details, go to the [Django REST Framework website](https://www.django-r
 
 This project uses `Serializer`s and **class-based views** (using the `APIView` class in `views.py`)
 
-For the API to work, four main files work together:
+For the **API** to work, four main files work together:
 
 * `models.py` define **Django models**
 * `serializers.py` define **serializers** (convert database data to Django models and vice versa)
