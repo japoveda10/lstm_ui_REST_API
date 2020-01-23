@@ -1,6 +1,10 @@
 # LSTM UI REST API Project Implementation Details
 
-**LSTM UI REST API** is a **Django** project. It has the next file structure:
+## About
+
+**LSTM UI REST API** is a **Django** project.
+
+## File Structure
 
 ```
 ├── api
@@ -38,7 +42,11 @@
 └── manage.py
 ```
 
+## Django projects key concepts
+
 Django projects have **apps**. This project has one app: **api**.
+
+## How was the API built?
 
 The API was built using **Django REST Framework**.
 
@@ -48,3 +56,14 @@ For the API to work, four main files work together:
 * `serializers.py` define serializers (convert database data to Django models and vice versa)
 * `views.py` defines the endpoints
 * `urls.py` defines the project's routes
+
+**Django REST Framework** offers many ways to create an API:
+
+* `HyperlinkedModelSerializer`s with `ModelViewSet`s (automatically generates the endpoints, but specific HTTP requests are not detectable in the code)
+* `ModelSerializer`s with **function-based views** (using `@api_view` decorator in `views.py`)
+* `ModelSerializer`s with **class-based views** (using the `APIView` class in `views.py`)
+* `HyperlinkedModelSerializer`s with **generic class-based views** (using `generics.ListCreateAPIView` and `generics.RetrieveUpdateDestroyAPIView`)
+* `ViewSet`s
+* `Serializer`s and **class-based views** (using the `APIView` class in `views.py`)
+
+This project uses `Serializer`s and **class-based views** (using the `APIView` class in `views.py`)
