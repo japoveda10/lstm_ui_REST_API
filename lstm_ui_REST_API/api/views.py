@@ -20,6 +20,8 @@ from rest_framework import status
 # lstm module
 # from lstm import main
 
+from .services import event_log_services as els;
+
 #------------------------------------------------------------------------------
 # API Root
 #------------------------------------------------------------------------------

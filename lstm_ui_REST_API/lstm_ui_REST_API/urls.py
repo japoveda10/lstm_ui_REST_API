@@ -33,7 +33,3 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
-
-print("Ready to execute event_log_services.py")
-os.system("python event_log_services.py")
-print("Finished executing event_log_services.py")
