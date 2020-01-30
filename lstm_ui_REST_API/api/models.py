@@ -61,7 +61,6 @@ class RoleSequence(models.Model):
 class ActivitySequence(models.Model):
     sequence_id = models.IntegerField(default=0)
     other_id = models.IntegerField(default=0)
-    roles = models.ManyToManyField('Role')
 
     def __str__(self):
         return self.role_name
