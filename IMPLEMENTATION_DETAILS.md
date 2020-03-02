@@ -4,7 +4,7 @@
 
 **LSTM UI REST API** is a **Django** project. The **API** was built using **Django REST Framework**.
 
-## File Structure
+## File structure
 
 ```
 ├── api
