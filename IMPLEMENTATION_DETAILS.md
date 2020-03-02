@@ -4,41 +4,42 @@
 
 **LSTM UI REST API** is a **Django** project. The **API** was built using **Django REST Framework**.
 
-## File structure
+## Project structure
 
 ```
 ├── api
     ├── __init__.py
     ├── admin.py
-    ├── apps.py
+    ├── apps.py       
     ├── migrations                          # Directory containing migrations history (updates to models)
     ├── models.py                           # Defines Django models
     ├── serializers.py                      # Defines Serializers (convert database data to Django models and vice versa)
+    ├── services
+        ├── __init__.py
+        ├── event_log_services.py
+        ├── input_files
+            ├── ConsultaDataMining201618.csv
+            ├── Production.csv
+            ├── PurchasingExample.csv
+            ├── ConsultaDataMining201618.xes.gz
+            ├── Production.xes.gz
+            └── PurchasingExample.xes.gz
+        ├── log_reader.py
+        ├── nn_support.py
+        ├── role_discovery.py
+        └── support.py 
     ├── tests.py
     └── views.py                            # Defines endpoints
 ├── EXAMPLE HTTP REQUESTS
     ├── POST_EVENT_LOG.txt                  # Example HTTP POST /event_logs/ request body
     └── POST_RUNNING_CASE.txt               # Example HTTP POST /running_cases/ request body
-├── input_files
-    ├── ConsultaDataMining201618.csv
-    ├── Production.csv
-    ├── PurchasingExample.csv
-    ├── ConsultaDataMining201618.xes.gz
-    ├── Production.xes.gz
-    └── PurchasingExample.xes.gz
 ├── lstm_ui_REST_API
     ├── __init__.py
     ├── settings.py                         # Defines database connection among other important information about the project
     ├── urls.py                             # Defines the project's routes
     └── wsgi.py
-├── support_modules
-    ├── nn_support.py
-    ├── readers
-        └── log_reader.py
-    ├── role_discovery.py
-    └── support.py
+├── erd.png
 ├── IMAGE.png
-├── event_log_services.py
 └── manage.py
 ```
 
