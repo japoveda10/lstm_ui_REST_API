@@ -46,10 +46,10 @@ If you are using **Windows**, follow the instructions available [here](https://p
 
 #### 5. Install Django
 
-You can use pip to install it (make sure you have created and activated a virtual environment for this project):
+You can use pip3 to install it (make sure you have created and activated a virtual environment for this project):
 
    ```
-   $ pip install django
+   $ pip3 install django
    ```
 
 <br />
@@ -59,35 +59,35 @@ You can use pip to install it (make sure you have created and activated a virtua
 Execute the following commands to install the project's dependencies:
 
    ```
-   $ pip install djangorestframework
+   $ pip3 install djangorestframework
    ```
    
    ```
-   $ pip install django_extensions
+   $ pip3 install django_extensions
    ```
    
    ```
-   $ pip install django-cors-headers
+   $ pip3 install django-cors-headers
    ```
    
    ```
-   $ pip install psycopg2
+   $ pip3 install psycopg2
    ```
    
    ```
-   $ pip install pandas
+   $ pip3 install pandas
    ```
    
    ```
-   $ pip install scipy
+   $ pip3 install scipy
    ```
    
    ```
-   $ pip install networkx
+   $ pip3 install networkx
    ```
    
    ```
-   $ pip install matplotlib
+   $ pip3 install matplotlib
    ```
 
 <br />
@@ -119,7 +119,7 @@ Instructions on how to edit the **PATH** environmental variable can be found [he
 If you are using **macOS**, execute the following command:
 
    ```
-   $ pip install postgres
+   $ pip3 install postgres
    ```
 
 <br />
@@ -180,11 +180,11 @@ If you are using **macOS**, execute the following commands:
 Execute the following commands (make sure you are located inside the same folder where the `manage.py` file is):
    
    ```
-   $ python manage.py makemigrations
+   $ python3 manage.py makemigrations
    ```
    
    ```
-   $ python manage.py migrate
+   $ python3 manage.py migrate
    ```
 
 <br />
@@ -224,7 +224,7 @@ If you are using **macOS**, execute the following command:
 Execute the following command:
 
    ```
-   $ python manage.py runserver
+   $ python3 manage.py runserver
    ```
    
 Then, open your web browser and go to:
